@@ -9,6 +9,5 @@
       private: yes
       confirm: yes
 
-  tasks:
-    - import_role:
-      name: archinstall
+  roles:
+    - archinstall

@@ -4,15 +4,15 @@
 
 
 
-- pre_tasks:
+  pre_tasks:
   # Make prompted vars available for all plays.
   #  - set_fact:
   #  user_password: "{{ user_password }}"
     
-  - name: List devices
-    command: lsblk -l
+    - name: List devices
+      command: lsblk -l
 
-- vars_prompt:
+  vars_prompt:
     - name: user_password
       prompt: "user password:"
       encrypt: "sha512_crypt"

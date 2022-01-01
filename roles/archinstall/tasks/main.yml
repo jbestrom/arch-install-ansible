@@ -1,0 +1,94 @@
+---
+# tasks file for ansible-arch-setup
+
+- name: Abort if the host is not booted from the Arch install media
+  fail:
+    msg: "This host is not booted from the Arch install media!"
+  when: ansible_nodename != 'archiso'
+
+- name: Synchronize clock via NTP
+  command: timedatectl set-ntp true
+
+# Repartition install drive
+- include_tasks: "partitions-bios.yml"
+  when: bios
+
+- include_tasks: "partitions-efi.yml"
+  when: efi
+
+- include_tasks: "partitions-dualboot-efi.yml"
+  when: dual_boot_efi
+
+# Rank Arch mirrors
+- name: Install the pacman-contrib package (for rankmirrors)
+  pacman:
+    name:
+      - pacman-contrib
+    update_cache: yes
+
+- name: Use rankmirrors to filter the fastest mirrors that support HTTPS
+  shell: curl -s "https://www.archlinux.org/mirrorlist/?country=DE&protocol=https&use_mirror_status=on" | sed -e 's/^#Server/Server/' -e '/^#/d' | rankmirrors -n 20 - > /etc/pacman.d/mirrorlist
+
+# Run pacstrap
+- name: Run pacstrap
+  command: pacstrap /mnt {{ item }}
+  loop:
+    - base
+    - base-devel
+    - dhclient
+    - dhcpcd
+    - grub
+    - os-prober
+    - linux
+    - linux-firmware
+    - openssh
+    - python
+    - sudo
+    - nano
+    - networkmanager
+    - git
+    - ansible
+
+- include_tasks: "drivers.yml"
+
+# Generate fstab
+- name: Create variable fstab
+  command: "genfstab -U /mnt"
+  register: fstab
+
+- name: Create fstab
+  copy:
+    content: "{{fstab.stdout}}"
+    dest: /mnt/etc/fstab
+
+# Set hostname
+- name: Set hostname
+  copy:
+    content: '{{ hostname }}'
+    dest: /mnt/etc/hostname
+
+- include_tasks: "bluetooth.yml"
+  when: bluetooth
+
+- include_tasks: "locales.yml"
+
+- include_tasks: "user.yml"
+
+- include_tasks: "xorg.yml"
+  when: xorg
+
+- include_tasks: "kde-plasma.yml"
+  when: plasma
+
+- include_tasks: "keyserver.yml"
+
+- include_tasks: "services.yml"
+
+- include_tasks: "bootloader.yml"
+
+# reboot
+- name: Reboot
+  reboot:
+    connect_timeout: 1
+    reboot_timeout: 1
+  failed_when: false

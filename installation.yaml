@@ -2,8 +2,9 @@
   name: bootstrap Arch Linux BTW system
   connection: local
 
-- name: List devices
-    command: lsblk -l
+- tasks:
+    - name: List devices
+      command: lsblk -l
 
 - vars_prompt:
     - name: user_password

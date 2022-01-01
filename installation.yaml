@@ -10,10 +10,10 @@
       confirm: yes
 
   tasks:
-    - name: Abort if the host is not booted from the Arch install media
-      fail:
-        msg: "This host is not booted from the Arch install media!"
-        when: ansible_nodename != 'archiso'
+    #- name: Abort if the host is not booted from the Arch install media
+    #  fail:
+    #    msg: "This host is not booted from the Arch install media!"
+    #    when: ansible_nodename != 'archiso'
 
     - name: Synchronize clock via NTP
       command: timedatectl set-ntp true

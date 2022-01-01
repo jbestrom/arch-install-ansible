@@ -1,6 +1,5 @@
 - hosts: localhost
   name: bootstrap Arch Linux BTW system
-  connection: local
 
 - tasks:
     - name: List devices

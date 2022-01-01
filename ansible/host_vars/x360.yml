@@ -1,0 +1,33 @@
+hostname: xps
+
+host_extra_packages:
+  - xf86-video-intel
+  - bumblebee
+  - mesa
+  - nvidia
+  - nvidia-settings
+  - lib32-virtualgl 
+  - lib32-nvidia-utils
+  
+
+host_extra_aur_packages: []
+
+drive:
+  device: /dev/nvme0n1
+  table: gpt
+  partitions:
+
+    - name: root
+      start: 512MiB
+      end: 100%
+      filesystem: ext4
+      mountpoint: /
+      encrypt: true
+
+    - name: efi
+      start: 0%
+      end: 512MiB
+      flags: [boot]
+      filesystem: vfat
+      mountpoint: /boot/efi
+      encrypt: false

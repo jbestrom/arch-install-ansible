@@ -9,10 +9,10 @@
       private: yes
       confirm: yes
 
-  pre_tasks:
+        #  pre_tasks:
     # Make prompted vars available for all plays.
-    - set_fact:
-      user_password: "{{ user_password }}"
+    #    - set_fact:
+    #      user_password: "{{ user_password }}"
 
   tasks:
     - import_role:

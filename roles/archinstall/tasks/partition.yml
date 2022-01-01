@@ -13,10 +13,10 @@
     flags: [boot, esp]
     state: present
 
-- parted:
-  device: '{{ install_drive }}'
-  unit: MiB
-  register: drive_info
+  parted:
+    device: '{{ install_drive }}'
+    unit: MiB
+    register: drive_info
 
 - set_fact:
   last_used_partition: "{{ drive_info.partitions | last }}"

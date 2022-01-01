@@ -20,7 +20,7 @@
     number: 2
     part_start: "512MB"
     name: root
-    flags: [lvm]
+      #flags: [lvm]
     state: present
 
 - name: Create FAT32 filesystem in boot partition

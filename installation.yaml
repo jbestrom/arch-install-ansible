@@ -18,7 +18,3 @@
       encrypt: "sha512_crypt"
       private: yes
       confirm: yes
-
-- tasks:
-  - import_roles:
-    name: archinstall

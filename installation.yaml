@@ -10,7 +10,11 @@
   #  user_password: "{{ user_password }}"
     
     - name: List devices
-      command: lsblk -l
+      shell: lsblk -l
+      register: command_output
+
+    - debug:
+        var: command_output.stdout_lines
 
   vars_prompt:
     - name: user_password

@@ -14,7 +14,6 @@
     - set_fact:
       user_password: "{{ user_password }}"
 
-
   tasks:
     - import_role:
       name: archinstall

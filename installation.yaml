@@ -1,20 +1,6 @@
 ---
-- hosts: localhost
-  name: bootstrap Arch Linux BTW system
-
-
-
-  pre_tasks:
-  # Make prompted vars available for all plays.
-  #  - set_fact:
-  #  user_password: "{{ user_password }}"
-    
-    - name: List devices
-      shell: lsblk -l
-      register: command_output
-
-    - debug:
-        var: command_output.stdout_lines
+- name: bootstrap Arch Linux BTW system
+  hosts: localhost
 
   vars_prompt:
     - name: user_password
@@ -22,3 +8,13 @@
       encrypt: "sha512_crypt"
       private: yes
       confirm: yes
+
+  pre_tasks:
+    # Make prompted vars available for all plays.
+    - set_fact:
+      user_password: "{{ user_password }}"
+
+
+  tasks:
+    - import_role:
+      name: archinstall

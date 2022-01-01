@@ -2,3 +2,5 @@
 
 - name: sync system clock
   command: timedatectl set-ntp true
+
+- include_tasks: "partition.yml"

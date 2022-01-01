@@ -5,6 +5,6 @@
     when: ansible_nodename != 'archiso'
 
 - name: Synchronize clock via NTP
-    command: timedatectl set-ntp true
+  command: timedatectl set-ntp true
 
 - include_tasks: "partition.yml"

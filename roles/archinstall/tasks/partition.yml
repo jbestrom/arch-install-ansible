@@ -13,19 +13,11 @@
     flags: [boot, esp]
     state: present
 
-  parted:
-    device: '{{ install_drive }}'
-    unit: MiB
-    register: drive_info
-
-- set_fact:
-  last_used_partition: "{{ drive_info.partitions | last }}"
-
 - name: Create root partition
   parted:
     device: '{{ install_drive }}'
     label: gpt
-    number: '{{ last_used_partition.num+1 }}'
+    number: 2
     part_start: "512MB"
     name: root
     flags: [lvm]
@@ -33,7 +25,7 @@
 
 - name: Create FAT32 filesystem in boot partition
   filesystem:
-    dev: '{{ install_drive }}{{ boot_partition_suffix }}'
+    dev: '{{ install_drive }}1'
     fstype: vfat
     opts: -F32
     force: yes
@@ -41,7 +33,7 @@
 # Create filesystems                            
 - name: Create ext4 filesystem in root volume
   filesystem:
-    dev: '{{ install_drive }}{{ root_partition_suffix }}'
+    dev: '{{ install_drive }}2'
     fstype: ext4
     force: yes
 
@@ -49,7 +41,7 @@
 - name: Mount root filesystem
   mount:
     path: /mnt
-    src: '{{ install_drive }}{{ root_partition_suffix }}'
+    src: '{{ install_drive }}2'
     fstype: ext4
     state: mounted
       
@@ -61,6 +53,6 @@
 - name: Mount boot filesystem
   mount:
     path: /mnt/boot
-    src: '{{ install_drive }}{{ boot_partition_suffix }}'
+    src: '{{ install_drive }}1'
     fstype: vfat
     state: mounted

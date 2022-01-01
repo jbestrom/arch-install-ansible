@@ -22,15 +22,14 @@
   last_used_partition: "{{ drive_info.partitions | last }}"
 
 - name: Create root partition
-    parted:
-      device: '{{ install_drive }}'
-      label: gpt
-      number: '{{ last_used_partition.num+1 }}'
-      part_start: "{{ 512+swap_size }}MB"
-      name: root
-      flags: [lvm]
-      state: present
-
+  parted:
+    device: '{{ install_drive }}'
+    label: gpt
+    number: '{{ last_used_partition.num+1 }}'
+    part_start: "512MB"
+    name: root
+    flags: [lvm]
+    state: present
 
 - name: Create FAT32 filesystem in boot partition
   filesystem:

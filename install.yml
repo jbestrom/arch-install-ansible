@@ -13,7 +13,7 @@
     - include_vars: "host_vars/{{ machine_aliases[ansible_product_name] }}"
 
     - set_fact:
-      user_password: "{{ user_password }}"
+        user_password: "{{ user_password }}"
 
     #- name: Abort if the host is not booted from the Arch install media
     #  fail:

@@ -1,0 +1,9 @@
+---
+# These are aliases that define file names with group vars for a host.
+# The name is obtained from `ansible_product_name` fact and matched to
+# corresponding file in `host_vars`.
+machine_aliases:
+  X570 AORUS PRO WIFI: arch-beast.yml
+
+arch_root: /mnt
+timezone: US/Mountain

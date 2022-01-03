@@ -1,0 +1,8 @@
+- name: import profiles of VMs
+  connection: local   
+  hosts: localhost   
+  gather_facts: true
+  tasks:
+    - name: Ansible​ fact OS 
+      debug:
+        msg: "{{ ansible_product_name }}"

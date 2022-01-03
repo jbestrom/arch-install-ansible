@@ -1,0 +1,8 @@
+[host]
+localhost ansible_python_interpreter=/usr/bin/python
+
+[connection]
+local
+
+[chroot]
+/mnt ansible_python_interpreter=/usr/bin/python

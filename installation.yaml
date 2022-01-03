@@ -9,7 +9,7 @@
       private: yes
       confirm: yes
 
-  tasks:
+  pre_tasks:
     #- name: Abort if the host is not booted from the Arch install media
     #  fail:
     #    msg: "This host is not booted from the Arch install media!"

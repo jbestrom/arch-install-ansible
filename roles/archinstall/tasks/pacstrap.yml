@@ -11,3 +11,11 @@
     - sudo
     - git
     - ansible
+
+- name: install Intel microcode
+    command: pacstrap /mnt intel-ucode
+        when: ansible_processor[1].find('Intel') != -1
+
+- name: install AMD microcode
+    command: pacstrap /mnt amd-ucode
+        when: ansible_processor[1].find('AMD') != -1

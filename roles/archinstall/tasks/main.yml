@@ -1,4 +1,4 @@
 ---
 - import_tasks: "partition.yml"
 - import_tasks: "mirror_update.yml"
-- import_tasks: "packstrap.yml"
+- import_tasks: "pacstrap.yml"

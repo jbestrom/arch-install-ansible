@@ -1,0 +1,13 @@
+---
+# Run pacstrap
+- name: Run pacstrap
+  command: pacstrap /mnt {{ item }}
+  loop:
+    - base
+    - base-devel
+    - linux
+    - linux-firmware
+    - openssh
+    - sudo
+    - git
+    - ansible

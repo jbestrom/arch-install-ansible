@@ -2,4 +2,3 @@
 install_drive: /dev/vda
 username: josh
 hostname: arch-beast
-timezone: US/Mountain

@@ -3,6 +3,7 @@
 # The name is obtained from `ansible_product_name` fact and matched to
 # corresponding file in `host_vars`.
 machine_aliases:
+  Standard PC (Q35 + ICH9, 2009): libvirt.yml
   X570 AORUS PRO WIFI: arch-beast.yml
 
 arch_root: /mnt

@@ -10,6 +10,11 @@
       confirm: yes
 
   pre_tasks:
+    - include_vars: "host_vars/{{ machine_aliases[ansible_product_name] }}"
+
+    - set_fact:
+      user_password: "{{ user_password }}"
+
     #- name: Abort if the host is not booted from the Arch install media
     #  fail:
     #    msg: "This host is not booted from the Arch install media!"
@@ -18,5 +23,6 @@
     - name: Synchronize clock via NTP
       command: timedatectl set-ntp true
 
-  roles:
-    - archinstall
+  tasks:
+    - import_role:
+        name: archinstall

@@ -1,4 +1,4 @@
 ---
 install_drive: /dev/vda
-hostname: arch-workstation
-user_name: nik
+username: josh
+hostname: arch-beast

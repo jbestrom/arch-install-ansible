@@ -1,5 +1,4 @@
 ---
-- import_tasks: "partition.yml"
 - import_tasks: "mirror_update.yml"
 - import_tasks: "pacstrap.yml"
 - import_tasks: "fstab.yml"

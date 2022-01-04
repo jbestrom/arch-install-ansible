@@ -6,6 +6,6 @@ pacman -Sy git ansible --noconfirm;
 
 git clone https://github.com/jbestrom/arch-install-ansible;
 
-cd arch-install-ansible;
+cwd ./arch-install-ansible;
 
 ansible-playbook -i localhost install.yml

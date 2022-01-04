@@ -16,11 +16,11 @@
     state: present
 
 - name: create user
-    user:
-      name: "{{ user.name }}"
-      group: "{{ user.group }}"
-      append: yes
-      groups: "{{ user.groups | join(',') }}"
-      comment: "{{ user.comment }}"
-      password: "{{ user_password }}"
-      update_password: on_create
+  user:
+    name: "{{ user.name }}"
+    group: "{{ user.group }}"
+    append: yes
+    groups: "{{ user.groups | join(',') }}"
+    comment: "{{ user.comment }}"
+    password: "{{ user_password }}"
+    update_password: on_create

@@ -11,3 +11,14 @@ country: United States
 locales:
   - en_US
 timezone: US/Mountain
+
+
+
+user:
+  name: josh
+  group: users
+  uid: 1000
+  comment: josh
+  groups:
+    - wheel
+  shell: /bin/bash

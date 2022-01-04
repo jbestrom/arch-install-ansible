@@ -2,3 +2,13 @@
 - import_tasks: "mirror_update.yml"
 - import_tasks: "localization.yml"
 
+
+
+- name: configure hostname
+  lineinfile:
+    path: /etc/hostname
+    line: "{{ hostname }}"
+    create: yes
+
+- import_tasks: "user.yml"
+

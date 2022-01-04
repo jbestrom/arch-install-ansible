@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/usr/bin/env bash
 
 mount -o remount,size=2G /run/archiso/cowspace;
 

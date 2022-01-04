@@ -1,6 +1,7 @@
 ---
 - hosts: localhost
   name: bootstrap Arch Linux BTW system
+  connection: local
 
   vars_prompt:
     - name: user_password
@@ -25,4 +26,14 @@
 
   tasks:
     - import_role:
-        name: archinstall
+        name: arch-bootstrap
+
+- hosts: chroot
+  name: install minimal Arch Linux system
+  connection: chroot
+
+  pre_tasks:
+    - include_vars: "host_vars/{{ machine_aliases[ansible_product_name] }}"
+
+  roles:
+    - arch-install

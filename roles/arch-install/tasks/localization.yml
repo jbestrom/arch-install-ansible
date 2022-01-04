@@ -9,7 +9,7 @@
   command: hwclock --systohc
 
 - name: Configure locale.gen
-  lineinfile:
+  replace:
     dest: /mnt/etc/locale.gen
     regexp: '{{ item.regex }}'
     line: '{{ item.line }}'

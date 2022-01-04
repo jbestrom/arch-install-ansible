@@ -10,11 +10,10 @@
 
 - name: Configure locale.gen
   replace:
-    dest: /mnt/etc/locale.gen
-    regexp: '{{ item.regex }}'
-    line: '{{ item.line }}'
-  loop:
-    - {regex: en_US\.UTF-8 UTF-8, line: en_US.UTF-8 UTF-8}
+      dest: /etc/locale.gen
+      regexp: "#.*({{ item }}.UTF-8 UTF-8)"
+      replace: '\1'
+  with_items: "{{ locales }}"
 
 - name: Create locale.conf
   copy:

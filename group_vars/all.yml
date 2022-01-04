@@ -8,4 +8,6 @@ machine_aliases:
 
 arch_root: /mnt
 country: United States
+locales:
+  - en_US
 timezone: US/Mountain

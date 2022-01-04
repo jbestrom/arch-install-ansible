@@ -7,4 +7,5 @@ machine_aliases:
   X570 AORUS PRO WIFI: arch-beast.yml
 
 arch_root: /mnt
+country: United States
 timezone: US/Mountain

@@ -18,7 +18,7 @@
 - name: Create locale.conf
   copy:
     content: "LANG=en_US.UTF-8"
-    dest: /mnt/etc/locale.conf
+    dest: /etc/locale.conf
             
 - name: Generate locales
   command: locale-gen

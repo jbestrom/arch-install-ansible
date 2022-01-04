@@ -1,5 +1,0 @@
----
-- name: Generate fstab
-  block:
-    - name: Generate fstab file
-      shell: genfstab -U /mnt > /mnt/etc/fstab

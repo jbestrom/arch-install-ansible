@@ -1,9 +1,12 @@
 ---
 - name: Set local timezone
-  command: arch-chroot /mnt ln -sf /usr/share/zoneinfo/{{ timezone }} /etc/localtime
+  file:
+    src: "/usr/share/zoneinfo/{{ timezone }}"
+    dest: /etc/localtime
+    state: link
 
 - name: Generate adjtime file
-  command: arch-chroot /mnt hwclock --systohc
+  command: hwclock --systohc
 
 - name: Configure locale.gen
   lineinfile:
@@ -19,4 +22,4 @@
     dest: /mnt/etc/locale.conf
             
 - name: Generate locales
-  command: arch-chroot /mnt locale-gen
+  command: locale-gen

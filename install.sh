@@ -2,4 +2,4 @@
 
 mount -o remount,size=2G /run/archiso/cowspace;
 
-pacman -Sy git ansible
+pacman -Sy git ansible --noconfirm

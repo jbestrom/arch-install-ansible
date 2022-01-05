@@ -38,6 +38,13 @@
         fstype: proc
         state: mounted
 
+    - name: mount efivarfs
+      mount:
+        src: efivarfs
+        path: "{{ arch_root }}/efivarfs"
+        fstype: efivarfs
+        state: mounted
+
     - name: mount temporary api systems
       mount:
         src: "/{{ item }}"
@@ -47,7 +54,6 @@
         state: mounted
       with_items:
           - sys
-          - efivarfs
           - dev
           - run
         

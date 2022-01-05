@@ -16,7 +16,6 @@
 - name: install bootloader packages
   pacman:
     name:
-      - systemd-boot
       - efibootmgr
 
 

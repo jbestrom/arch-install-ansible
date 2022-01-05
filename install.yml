@@ -38,13 +38,6 @@
         fstype: proc
         state: mounted
 
-    - name: mount efivarfs
-      mount:
-        src: efivarfs
-        path: "{{ arch_root }}/efivarfs"
-        fstype: efivarfs
-        state: mounted
-
     - name: mount temporary api systems
       mount:
         src: "/{{ item }}"
@@ -56,6 +49,13 @@
           - sys
           - dev
           - run
+
+    - name: mount efivarfs
+      mount:
+        src: efivarfs
+        path: "{{ arch_root }}/sys/firmware/efi/efivarfs"
+        fstype: efivarfs
+        state: mounted
         
     - name: copy resolv.conf into chroot
       copy:

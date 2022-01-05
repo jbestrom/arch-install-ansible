@@ -73,8 +73,8 @@
     #    - name: copy playbook to newly installed system
     # command: "cp -ar {{ playbook_dir }} {{ arch_root }}/home/{{ user.name }}"
 
-    - name: unmount partitions with the new system
-      command: umount -Rf {{ arch_root }}
+    #- name: unmount partitions with the new system
+    #  command: umount -Rf {{ arch_root }}
     
         #    - name: reboot
         #      command: reboot

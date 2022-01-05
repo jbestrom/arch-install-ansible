@@ -50,14 +50,14 @@
           - dev
           - run
 
-    - name: mount efivarfs
+    - name: Mount efivars read-only to avoid EFIgeddon
       mount:
         src: efivarfs
-        path: "{{ arch_root }}/sys/firmware/efi/efivars"
-        opts: bind
+        path: /mnt/sys/firmware/efi/efivars
         fstype: efivarfs
+          #        opts: "ro,nosuid,nodev,noexec,noatime"
         state: mounted
-        
+
     - name: copy resolv.conf into chroot
       copy:
         src: /etc/resolv.conf

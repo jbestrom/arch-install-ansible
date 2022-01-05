@@ -55,7 +55,6 @@
         src: efivarfs
         path: /mnt/sys/firmware/efi/efivars
         fstype: efivarfs
-        opts: bind
         state: mounted
 
     - name: copy resolv.conf into chroot

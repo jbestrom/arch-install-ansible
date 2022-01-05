@@ -1,6 +1,6 @@
 ---
-- name: Mount efivars read-only to avoid EFIgeddon
-  mount: src=efivarfs path=/sys/firmware/efi/efivars fstype=efivarfs opts="ro,nosuid,nodev,noexec,noatime" state=present
+#- name: Mount efivars read-only to avoid EFIgeddon
+#  mount: src=efivarfs path=/sys/firmware/efi/efivars fstype=efivarfs opts="ro,nosuid,nodev,noexec,noatime" state=present
 
 - name: rebuild initramfs
   command: mkinitcpio -p linux

@@ -47,6 +47,7 @@
         state: mounted
       with_items:
           - sys
+          - efivarfs
           - dev
           - run
         

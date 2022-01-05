@@ -1,6 +1,6 @@
 ---
 - name: rebuild initramfs
-    command: mkinitcpio -p linux
+  command: mkinitcpio -p linux
 
 - name: 'detect boot firmware (UEFI or BIOS)'
   shell: '[ -d /sys/firmware/efi ] && echo UEFI || echo BIOS'

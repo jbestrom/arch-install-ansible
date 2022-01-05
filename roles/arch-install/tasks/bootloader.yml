@@ -7,13 +7,14 @@
     name:
       - efibootmgr
 
-
 - name: Install systemd-boot to /boot
   command: bootctl install
 
 - name: Create loader config
-  blockinfile:
+  lineinfile:
     path: /boot/loader/loader.conf
-    block: "default arch.conf
-      timeout 0"
-
+    state: present
+    line: "{{ item }}"
+  with_items:
+    - "default arch.conf"
+    - "timeout 0"

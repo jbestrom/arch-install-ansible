@@ -2,3 +2,4 @@
 install_drive: /dev/vda
 username: josh
 hostname: arch-beast
+extra_kernel_params: 'ipv6.disable=1 intel_pstate=no_hwp amd_iommu=on iommu=pt vfio-pci.ids=1b21:1242,1043:8696,1002:ab28'

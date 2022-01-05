@@ -53,7 +53,8 @@
     - name: mount efivarfs
       mount:
         src: efivarfs
-        path: "{{ arch_root }}/sys/firmware/efi/efivarfs"
+        path: "{{ arch_root }}/sys/firmware/efi/efivars"
+        opts: bind
         fstype: efivarfs
         state: mounted
         

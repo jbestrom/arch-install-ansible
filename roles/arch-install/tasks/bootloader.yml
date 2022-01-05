@@ -34,7 +34,7 @@
     - "linux /vmlinuz-linux"
     - "initrd /amd-ucode.img"
     - "initrd /initramfs-linux.img"
-    - "options root=PARTUUID='{{ partuuid }}' rw"
+      #    - "options root=PARTUUID='{{ partuuid }}' rw"
   when: ansible_processor[1].find('AMD') != -1
 
 - name: Create loader entry (Intel)
@@ -47,5 +47,5 @@
     - "linux /vmlinuz-linux"
     - "initrd /intel-ucode.img"
     - "initrd /initramfs-linux.img"
-    - "options root=PARTUUID={{ partuuid }} rw"
+      #    - "options root=PARTUUID={{ partuuid }} rw"
   when: ansible_processor[1].find('Intel') != -1

@@ -24,7 +24,6 @@
   register: partuuid
   changed_when: false
 
-
 - name: Create loader entry (AMD)
   lineinfile:
     path: /boot/loader/entries/arch.conf

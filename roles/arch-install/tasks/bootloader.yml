@@ -22,7 +22,6 @@
 - name: Generate PARTUUID
   command: "blkid -t PARTLABEL=root -l -s PARTUUID -o value"
   register: partuuid
-  changed_when: false
 
 - name: Create loader entry (AMD)
   lineinfile:

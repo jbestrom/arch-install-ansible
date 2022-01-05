@@ -6,11 +6,11 @@
   shell: '[ -d /sys/firmware/efi ] && echo UEFI || echo BIOS'
   register: firmware
 
-- name: create /boot/EFI directory
-  file:
-    path: /boot/EFI
-    state: directory
-    when: firmware.stdout == 'UEFI'
+    #- name: create /boot/EFI directory
+    #file:
+    #path: /boot/EFI
+    #state: directory
+    #when: firmware.stdout == 'UEFI'
 
 
 - name: install bootloader packages

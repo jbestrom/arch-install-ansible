@@ -26,7 +26,8 @@
 - name: Create loader entry (AMD)
   lineinfile:
     path: /boot/loader/entries/arch.conf
-      #    state: present
+    state: present
+    create: yes
     line: "{{ item }}"
   with_items:
     - "title Arch Linux"
@@ -36,15 +37,15 @@
       #    - "options root=PARTUUID='{{ partuuid }}' rw"
   when: ansible_processor[1].find('AMD') != -1
 
-- name: Create loader entry (Intel)
-  lineinfile:
-    path: /boot/loader/entries/arch.conf
-    state: present
-    line: "{{ item }}"
-  with_items:
-    - "title Arch Linux"
-    - "linux /vmlinuz-linux"
-    - "initrd /intel-ucode.img"
-    - "initrd /initramfs-linux.img"
+    #- name: Create loader entry (Intel)
+    #  lineinfile:
+    #    path: /boot/loader/entries/arch.conf
+    #    state: present
+    #    line: "{{ item }}"
+    #  with_items:
+    #    - "title Arch Linux"
+    #    - "linux /vmlinuz-linux"
+    #    - "initrd /intel-ucode.img"
+    #    - "initrd /initramfs-linux.img"
       #    - "options root=PARTUUID={{ partuuid }} rw"
-  when: ansible_processor[1].find('Intel') != -1
+      #  when: ansible_processor[1].find('Intel') != -1

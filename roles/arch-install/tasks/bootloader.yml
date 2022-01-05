@@ -34,18 +34,19 @@
     - "linux /vmlinuz-linux"
     - "initrd /amd-ucode.img"
     - "initrd /initramfs-linux.img"
-    - "options root=PARTUUID='{{ partuuid }}' rw"
+    - "options root=PARTUUID='{{ partuuid.stdout }}' rw"
   when: ansible_processor[1].find('AMD') != -1
 
-    #- name: Create loader entry (Intel)
-    #  lineinfile:
-    #    path: /boot/loader/entries/arch.conf
-    #    state: present
-    #    line: "{{ item }}"
-    #  with_items:
-    #    - "title Arch Linux"
-    #    - "linux /vmlinuz-linux"
-    #    - "initrd /intel-ucode.img"
-    #    - "initrd /initramfs-linux.img"
-      #    - "options root=PARTUUID={{ partuuid }} rw"
-      #  when: ansible_processor[1].find('Intel') != -1
+- name: Create loader entry (Intel)
+  lineinfile:
+    path: /boot/loader/entries/arch.conf
+    state: present
+    create: yes
+    line: "{{ item }}"
+  with_items:
+    - "title Arch Linux"
+    - "linux /vmlinuz-linux"
+    - "initrd /intel-ucode.img"
+    - "initrd /initramfs-linux.img"
+    - "options root=PARTUUID={{ partuuid.stdout }} rw"
+  when: ansible_processor[1].find('Intel') != -1

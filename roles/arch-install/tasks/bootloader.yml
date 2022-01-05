@@ -1,20 +1,6 @@
 ---
-#- name: Mount efivars read-only to avoid EFIgeddon
-#  mount: src=efivarfs path=/sys/firmware/efi/efivars fstype=efivarfs opts="ro,nosuid,nodev,noexec,noatime" state=present
-
 - name: rebuild initramfs
   command: mkinitcpio -p linux
-
-- name: 'detect boot firmware (UEFI or BIOS)'
-  shell: '[ -d /sys/firmware/efi ] && echo UEFI || echo BIOS'
-  register: firmware
-
-    #- name: create /boot/EFI directory
-    #file:
-    #path: /boot/EFI
-    #state: directory
-    #when: firmware.stdout == 'UEFI'
-
 
 - name: install bootloader packages
   pacman:
@@ -25,4 +11,9 @@
 - name: Install systemd-boot to /boot
   command: bootctl install
 
+- name: Create loader config
+  blockinfile:
+    path: /boot/loader/loader.conf
+    block: "default arch.conf
+      timeout 0"
 

@@ -55,7 +55,7 @@
         src: efivarfs
         path: /mnt/sys/firmware/efi/efivars
         fstype: efivarfs
-          #        opts: "ro,nosuid,nodev,noexec,noatime"
+        opts: "ro,nosuid,nodev,noexec,noatime"
         state: mounted
 
     - name: copy resolv.conf into chroot

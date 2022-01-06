@@ -78,7 +78,9 @@
         var: es
 
     - include_role:
-        name:  "{{ es }}" 
+        name:  ""
+      with_items:
+       "{{ es }}" 
     #  when: es | length > 0
 
 - hosts: localhost

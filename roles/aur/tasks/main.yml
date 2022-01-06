@@ -1,0 +1,7 @@
+---
+- name: install AUR package helper yay
+  aur:
+    name: yay
+    user: "{{ user.name }}"
+    dir: /tmp
+  tags: aur

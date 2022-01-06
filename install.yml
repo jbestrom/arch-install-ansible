@@ -72,7 +72,11 @@
 
   roles:
     - arch-install
-    - aur
+
+  - name: dynamic roles
+    import_role: "{{ item }}"
+    with_items:
+      - aur
 
 - hosts: localhost
   connection: local

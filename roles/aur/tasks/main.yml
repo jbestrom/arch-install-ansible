@@ -1,10 +1,8 @@
 ---
-- name: configure repository mirrors
-  command: "reflector --sort score -p https --country '{{ country }}' --save /etc/pacman.d/mirrorlist"
+- name: Clone yay repo
+  git: repo=https://aur.archlinux.org/yay.git dest=/tmp/yay/ accept_hostkey=yes update=yes
+  become_user: "{{ user.name }}"
 
-- name: install AUR package helper yay
-  aur:
-    name: yay
-    user: "{{ user.name }}"
-    dir: /tmp
-
+- name: Create yay package
+  shell: cd /tmp/yay && makepkg -si --noconfirm
+  become_user: "{{ user.name }}"

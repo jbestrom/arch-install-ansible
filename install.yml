@@ -70,12 +70,16 @@
   pre_tasks:
     - include_vars: "host_vars/{{ machine_aliases[ansible_product_name] }}"
 
-  roles:
-    - arch-install
 
   tasks:
-    - name: dynamic roles
-      import_role: "{{ item }}"
+    - import_role:
+      name: arch-install
+
+        #roles:
+        #    - arch-install
+
+    - import_role:
+      name:  "{{ item }}"
       with_items:
         - aur
 

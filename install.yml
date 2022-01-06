@@ -80,8 +80,8 @@
     - include_role:
         name:  "{{ item }}"
       with_items:
-       "{{ es }}" 
-    #  when: es | length > 0
+       "{{ extra_roles }}" 
+      when: extra_roles | length > 0
 
 - hosts: localhost
   connection: local

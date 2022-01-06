@@ -78,7 +78,7 @@
         var: es
 
     - include_role:
-        name:  "{{ item }}"
+        name:  "Extra Roles"
       with_items:
        "{{ extra_roles }}" 
       when: extra_roles | length > 0

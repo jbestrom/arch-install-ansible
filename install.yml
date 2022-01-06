@@ -78,7 +78,7 @@
         var: es
 
     - import_role:
-        name:  es 
+        name:  "{{ es }}" 
     #  when: es | length > 0
 
 - hosts: localhost

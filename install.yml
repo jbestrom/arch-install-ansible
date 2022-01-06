@@ -74,7 +74,7 @@
     - import_role:
         name: arch-install
 
-    - import_role:
+    - include_role:
         name: "{{ roles }}"
         loop:
           - aur

@@ -12,8 +12,7 @@ locales:
   - en_US
 timezone: US/Mountain
 
-es:
-  aur
+es: aur
 
 user:
   name: josh

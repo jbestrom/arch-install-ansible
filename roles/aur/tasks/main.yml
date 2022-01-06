@@ -1,8 +1,10 @@
 ---
 - name: Clone yay repo
   git: repo=https://aur.archlinux.org/yay.git dest=/tmp/yay/ accept_hostkey=yes update=yes
+  become: yes
   become_user: "{{ user.name }}"
 
 - name: Create yay package
   shell: cd /tmp/yay && makepkg -si --noconfirm
+  become: yes
   become_user: "{{ user.name }}"

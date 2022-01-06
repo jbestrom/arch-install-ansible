@@ -74,11 +74,8 @@
     - arch-install
   
   tasks:
-    - debug:
-        var: es
-
     - include_role:
-        name:  "Extra Roles"
+        name:  "{{ item }}"
       with_items:
        "{{ extra_roles }}" 
       when: extra_roles | length > 0

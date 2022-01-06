@@ -75,9 +75,11 @@
         name: arch-install
 
     - import_role:
-        name: "{{ item }}"
-        with_items:
+        name: "{{ roles }}"
+        loop:
           - aur
+        loop_control:
+          loop_var: roles
 
 - hosts: localhost
   connection: local

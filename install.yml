@@ -74,10 +74,11 @@
     - arch-install
   
   tasks:
-    - include_vars: "host_vars/{{ machine_aliases[ansible_product_name] }}"
-    - import_role:
-        name:  "{{ es }}"
-      when: es | length > 0
+    - debug:
+        var: es
+    #    - import_role:
+    #    name:  "{{ es }}"
+    #  when: es | length > 0
 
 - hosts: localhost
   connection: local

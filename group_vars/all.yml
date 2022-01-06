@@ -12,8 +12,6 @@ locales:
   - en_US
 timezone: US/Mountain
 
-extra_roles: ''
-
 user:
   name: josh
   group: users

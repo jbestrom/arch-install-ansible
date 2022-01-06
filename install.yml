@@ -72,7 +72,7 @@
 
   roles:
     - arch-install
-    - "{{ extra_roles }}"
+    - "{{ host_vars.extra_roles }}"
 
 - hosts: localhost
   connection: local

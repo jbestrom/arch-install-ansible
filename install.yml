@@ -75,8 +75,8 @@
   
   tasks:
     - import_role:
-        name:  "{{ extra_roles }}"
-      when: extra_roles | length > 0
+      name:  "{{ es }}"
+      when: es | length > 0
 
 - hosts: localhost
   connection: local

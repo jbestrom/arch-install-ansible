@@ -3,4 +3,5 @@ install_drive: /dev/vda
 username: josh
 hostname: arch-beast
 extra_kernel_params: ''
-extra_roles: ''
+es: 
+  - aur

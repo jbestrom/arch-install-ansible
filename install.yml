@@ -72,7 +72,7 @@
 
   tasks:
     - import_role:
-      name: arch-install
+        name: arch-install
 
 - hosts: localhost
   connection: local

@@ -4,4 +4,4 @@ username: josh
 hostname: arch-beast
 extra_kernel_params: ''
 es: 
-  - aur
+  aur

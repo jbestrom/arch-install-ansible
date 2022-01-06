@@ -76,8 +76,9 @@
   tasks:
     - debug:
         var: es
-    #    - import_role:
-    #    name:  "{{ es }}"
+
+    - import_role:
+        name:  es 
     #  when: es | length > 0
 
 - hosts: localhost

@@ -1,8 +1,8 @@
 ---
-- name: install AUR package helper yay
-  #aur:
-  #  name: yay
-  #  user: "{{ user.name }}"
-  #  dir: /tmp
-  #tags: aur
+- name: configure repository mirrors
+  command: "reflector --sort score -p https --country '{{ country }}' --save /etc/pacman.d/mirrorlist"
 
+- name: upgrade system to latest state
+  pacman:
+    update_cache: yes
+    upgrade: yes      

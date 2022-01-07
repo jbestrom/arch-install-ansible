@@ -1,4 +1,11 @@
 ---
+
+- name: install required packages
+  pacman:
+    name:
+      - xorg-server
+  state: present
+
 - name: Clone DWM
   git:
     repo: https://github.com/jbestrom/dwm.git

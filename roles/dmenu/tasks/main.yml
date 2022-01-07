@@ -8,7 +8,7 @@
 
 - name: Clone dmenu 
   git:
-    repo: git clone https://git.suckless.org/dmenu
+    repo: https://git.suckless.org/dmenu
     dest: "/home/{{ user.name }}/.local/src/dmenu"
     accept_hostkey: yes
     update: yes

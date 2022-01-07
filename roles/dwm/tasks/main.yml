@@ -1,10 +1,10 @@
 ---
-
 - name: install required packages
   pacman:
     name:
       - xorg-server
   state: present
+  become: yes
 
 - name: Clone DWM
   git:

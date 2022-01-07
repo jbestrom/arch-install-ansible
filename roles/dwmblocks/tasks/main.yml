@@ -1,0 +1,31 @@
+---
+- name: install required packages
+  pacman:
+    name:
+      - xorg-server
+    state: present
+  become: yes
+
+- name: Clone dwmblocks
+  git:
+    repo: https://github.com/jbestrom/dwmblocks.git
+    dest: "/home/{{ user.name }}/.local/src/dwmblocks"
+    accept_hostkey: yes
+    update: yes
+  become: true
+  become_user: "{{ user.name }}"
+
+- name: Build dwmblocks
+  make:
+    chdir: "/home/{{ user.name }}/.local/src/dwmblocks"
+    target: all
+    file: "/home/{{ user.name }}/.local/src/dwmblocks/Makefile"
+  become: yes
+  become_user: "{{ user.name }}"
+
+- name: Install dwmblocks
+  make:
+    chdir: "/home/{{ user.name }}/.local/src/dwmblocks"
+    target: install
+    file: "/home/{{ user.name }}/.local/src/dwmblocks/Makefile"
+  become: yes

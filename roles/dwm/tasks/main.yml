@@ -2,8 +2,23 @@
 - name: Clone DWM
   git:
     repo: https://github.com/jbestrom/dwm.git
-    dest: "/home/{{ user.name }}/.local/src"
+    dest: "/home/{{ user.name }}/.local/src/dwm"
     accept_hostkey: yes
     update: yes
   become: true
   become_user: "{{ user.name }}"
+
+- name: Build DWM
+  make:
+    chdir: "/home/{{ user.name }}/.local/src/dwm"
+    target: all
+    file: "/home/{{ user.name }}/.local/src/dwm/Makefile"
+  become: yes
+  become_user: "{{ user.name }}"
+
+- name: Install DWM
+  make:
+    chdir: "/home/{{ user.name }}/.local/src/dwm"
+    target: install
+    file: "/home/{{ user.name }}/.local/src/dwm/Makefile"
+  become: yes

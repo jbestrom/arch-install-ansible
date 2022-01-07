@@ -1,0 +1,31 @@
+---
+- name: install required packages
+  pacman:
+    name:
+      - xorg-server
+    state: present
+  become: yes
+
+- name: Clone dmenu 
+  git:
+    repo: git clone https://git.suckless.org/dmenu
+    dest: "/home/{{ user.name }}/.local/src/dmenu"
+    accept_hostkey: yes
+    update: yes
+  become: true
+  become_user: "{{ user.name }}"
+
+- name: Build DWM
+  make:
+    chdir: "/home/{{ user.name }}/.local/src/dmenu"
+    target: all
+    file: "/home/{{ user.name }}/.local/src/dmenu/Makefile"
+  become: yes
+  become_user: "{{ user.name }}"
+
+- name: Install DWM
+  make:
+    chdir: "/home/{{ user.name }}/.local/src/dmenu"
+    target: install
+    file: "/home/{{ user.name }}/.local/src/dmenu/Makefile"
+  become: yes

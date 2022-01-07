@@ -9,3 +9,4 @@ extra_roles:
   - dmenu
   - dwmblocks
   - st
+  - dotfiles

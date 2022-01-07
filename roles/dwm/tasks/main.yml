@@ -1,7 +1,7 @@
 ---
 - name: Clone DWM
   git:
-    repo: https://github.com/jbstrom/dwm.git
+    repo: https://github.com/jbestrom/dwm.git
     dest: "/home/{{ user.name }}/.local/src"
     accept_hostkey: yes
     update: yes

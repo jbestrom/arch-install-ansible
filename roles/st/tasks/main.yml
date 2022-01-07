@@ -1,0 +1,32 @@
+---
+#- name: install required packages
+#  pacman:
+#    name:
+#      - xorg-server
+#      - libxft
+#      - libxinerama
+#    state: present
+#  become: yes
+
+- name: Clone st
+  git:
+    repo: https://github.com/jbestrom/st.git
+    dest: "/home/{{ user.name }}/.local/src/st"
+    accept_hostkey: yes
+    update: yes
+  become: true
+  become_user: "{{ user.name }}"
+
+- name: Build st
+  make:
+    chdir: "/home/{{ user.name }}/.local/src/st"
+    file: "/home/{{ user.name }}/.local/src/st/Makefile"
+  become: yes
+  become_user: "{{ user.name }}"
+
+- name: Install st
+  make:
+    chdir: "/home/{{ user.name }}/.local/src/st"
+    target: install
+    file: "/home/{{ user.name }}/.local/src/st/Makefile"
+  become: yes

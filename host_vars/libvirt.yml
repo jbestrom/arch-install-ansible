@@ -5,4 +5,7 @@ hostname: arch-beast
 extra_kernel_params: ''
 extra_roles: 
   - aur
+  - dwm
+  - dmenu
+  - dwmblocks
   - st

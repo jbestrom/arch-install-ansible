@@ -1,0 +1,9 @@
+---
+- name: Clone DWM
+  git:
+    repo: https://github.com/jbstrom/dwm.git
+    dest: "/home/{{ user.name }}/.local/src"
+    accept_hostkey: yes
+    update: yes
+  become: true
+  become_user: "{{ user.name }}"

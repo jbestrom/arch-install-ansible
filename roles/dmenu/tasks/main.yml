@@ -3,6 +3,7 @@
   pacman:
     name:
       - xorg-server
+      - libxft
       - libxinerama
     state: present
   become: yes

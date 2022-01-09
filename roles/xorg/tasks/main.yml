@@ -4,8 +4,11 @@
     name:
       - xorg-server
       - xorg-xinit
-      - libxft
       - libxinerama
-
     state: present
   become: yes
+
+- name: Install libxft-bgra-git emoji fix
+  shell: yay -S libxft-bgra-git --save --answerclean All --answerdiff None --useask
+  become: yes
+  become_user: "{{ user.name }}"

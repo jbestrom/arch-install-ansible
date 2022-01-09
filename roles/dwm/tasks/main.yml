@@ -1,4 +1,7 @@
 ---
+- dependencies:
+    - role: xorg
+
 - name: install required packages
   pacman:
     name:

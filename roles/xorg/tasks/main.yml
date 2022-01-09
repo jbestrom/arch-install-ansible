@@ -1,0 +1,8 @@
+---
+- name: install required packages
+  pacman:
+    name:
+      - xorg-server
+      - xorg-xinit
+    state: present
+  become: yes

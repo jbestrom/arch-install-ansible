@@ -5,7 +5,15 @@
       - xorg-server
       - xorg-xinit
       - libxinerama
+      - libxft
     state: present
+  become: yes
+
+- name: remove libxft as it conflicts with fix below
+  pacman:
+    name:
+      - libxft
+    state: absent
   become: yes
 
 - name: Install libxft-bgra-git emoji fix

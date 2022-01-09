@@ -1,0 +1,27 @@
+---
+- name: install qemu/libvirt
+  pacman:
+    name: 
+      - qemu
+      - libvirt
+    state: present
+
+- name: configure allow bridge
+  lineinfile:
+    path: /etc/qemu/bridge.conf
+    state: present
+    create: yes
+    line: "allow br0"
+
+- name: configure qemu-ifup
+  template:
+    src: qemu-ifup.j2
+    dest: /etc/
+    mode: 755
+
+- name: config libvirt to use user
+  lineinfile:
+    path: /etc/libvirt/qemu.conf
+    state: present
+    create: yes
+    line: 'user = "{{ user.name }}"'

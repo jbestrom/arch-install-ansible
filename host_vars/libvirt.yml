@@ -10,3 +10,4 @@ extra_roles:
   - dwmblocks
   - st
   - dotfiles
+  - qemu

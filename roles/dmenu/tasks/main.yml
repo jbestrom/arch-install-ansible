@@ -1,13 +1,4 @@
 ---
-- name: install required packages
-  pacman:
-    name:
-      - xorg-server
-      - libxft
-      - libxinerama
-    state: present
-  become: yes
-
 - name: Clone dmenu 
   git:
     repo: https://git.suckless.org/dmenu

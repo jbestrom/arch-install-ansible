@@ -1,13 +1,4 @@
 ---
-#- name: install required packages
-#  pacman:
-#    name:
-#      - xorg-server
-#      - libxft
-#      - libxinerama
-#    state: present
-#  become: yes
-
 - name: Clone DWM
   git:
     repo: https://github.com/jbestrom/dwm.git

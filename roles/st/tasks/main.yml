@@ -1,12 +1,4 @@
 ---
-- name: install required packages
-  pacman:
-    name:
-      - xorg-server
-      - libxft
-    state: present
-  become: yes
-
 - name: Clone st
   git:
     repo: https://github.com/jbestrom/st.git

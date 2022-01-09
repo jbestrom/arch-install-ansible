@@ -1,11 +1,4 @@
 ---
-- name: install required packages
-  pacman:
-    name:
-      - xorg-server
-    state: present
-  become: yes
-
 - name: Clone dwmblocks
   git:
     repo: https://github.com/jbestrom/dwmblocks.git

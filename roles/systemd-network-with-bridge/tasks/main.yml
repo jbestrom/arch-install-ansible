@@ -1,7 +1,7 @@
 ---
 - name: enable systemd-network service
   systemd:
-    name: networkd
+    name: systemd-networkd
     enabled: yes
 
 - name: configure br0.network

@@ -15,6 +15,11 @@
   become: true
   become_user: "{{ user.name }}"
 
+- name: remove bash files
+  shell: rm -rf ${HOME}/.bash*
+  become: yes
+  become_user: "{{ user.name }}"
+
 - name: Install dotfiles
   shell: stow * 
   args:

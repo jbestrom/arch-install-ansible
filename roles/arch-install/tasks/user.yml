@@ -24,3 +24,6 @@
     comment: "{{ user.comment }}"
     password: "{{ hostvars.localhost.user_password }}"
     update_password: on_create
+
+- name: clean user dir
+  command: /bin/rm -rf $HOME/*

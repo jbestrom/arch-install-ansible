@@ -16,7 +16,7 @@
 - name: configure qemu-ifup
   template:
     src: qemu-ifup.j2
-    dest: /etc/
+    dest: /etc/qemu-ifup
     mode: 755
 
 - name: config libvirt to use user

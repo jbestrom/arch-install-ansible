@@ -7,18 +7,18 @@
 - name: configure br0.network
   template:
     src: br0.network.j2
-    dest: /etc/systemd-network/br0.network
+    dest: /etc/systemd/network/br0.network
     mode: 440
 
 - name: configure br0.netdev
   template:
     src: br0.netdev.j2
-    dest: /etc/systemd-network/br0.netdev
+    dest: /etc/systemd/network/br0.netdev
     mode: 440
 
 - name: Create network
   lineinfile:
-    path: "/etc/systemd-network/10-{{ eth_device }}.network"
+    path: "/etc/systemd/network/10-{{ eth_device }}.network"
     state: present
     line: "{{ item }}"
   with_items:

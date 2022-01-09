@@ -5,18 +5,19 @@
       - xorg-server
       - xorg-xinit
       - libxinerama
-      - libxft
+      - fontconfig-2
+      - libxrender
     state: present
   become: yes
 
-- name: remove libxft as it conflicts with fix below
-  pacman:
-    name:
-      - libxft
-    state: absent
-  become: yes
+    #- name: remove libxft as it conflicts with fix below
+    #  pacman:
+    #    name:
+    #      - libxft
+    #    state: absent
+    #  become: yes
 
 - name: Install libxft-bgra-git emoji fix
-  shell: yay -S libxft-bgra-git --save --answerclean All --answerdiff None --useask
+  shell: yay -S libxft-bgra-git --save --answerclean All --answerdiff None
   become: yes
   become_user: "{{ user.name }}"

@@ -5,8 +5,9 @@
       - xorg-server
       - xorg-xinit
       - libxinerama
-        #      - fontconfig
-        #      - libxrender
+      - fontconfig
+      - libxrender
+      - xorg-util-macros
     state: present
   become: yes
 

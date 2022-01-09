@@ -4,17 +4,22 @@
     name: systemd-networkd
     enabled: yes
 
+- name: enable systemd-resolved service
+  systemd:
+    name: systemd-resolved
+    enabled: yes
+
 - name: configure br0.network
   template:
     src: br0.network.j2
     dest: /etc/systemd/network/br0.network
-    mode: 440
+    mode: 644
 
 - name: configure br0.netdev
   template:
     src: br0.netdev.j2
     dest: /etc/systemd/network/br0.netdev
-    mode: 440
+    mode: 644
 
 - name: Create network
   lineinfile:

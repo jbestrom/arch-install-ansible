@@ -16,6 +16,8 @@
   become_user: "{{ user.name }}"
 
 - name: Install dotfiles
-  shell: stow -d ${HOME}/.dotfiles -t ${HOME} * 
+  shell: stow * 
+  args:
+    chdir: ${HOME}/.dotfiles
   become: yes
   become_user: "{{ user.name }}"

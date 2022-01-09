@@ -1,4 +1,11 @@
 ---
+- name: install required packages
+  pacman:
+    name:
+      - ttf-joypixels
+    state: present
+    become: yes
+
 - name: Clone st
   git:
     repo: https://github.com/jbestrom/st.git
@@ -21,3 +28,8 @@
     target: install
     file: "/home/{{ user.name }}/.local/src/st/Makefile"
   become: yes
+
+- name: Install libxft-bgra-git emoji fix
+  shell: yay -S libxft-bgra-git --save --answerclean All --answerdiff None
+  become: yes
+  become_user: "{{ user.name }}"

@@ -26,4 +26,4 @@
     update_password: on_create
 
 - name: clean user dir
-  command: /bin/rm -rf $HOME/*
+  command: "/bin/rm -rf /home/{{ user.name }}/*"

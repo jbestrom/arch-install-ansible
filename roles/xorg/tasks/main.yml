@@ -4,5 +4,8 @@
     name:
       - xorg-server
       - xorg-xinit
+      - libxft
+      - libxinerama
+
     state: present
   become: yes

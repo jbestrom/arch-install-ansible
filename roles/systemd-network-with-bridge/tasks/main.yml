@@ -20,6 +20,7 @@
   lineinfile:
     path: "/etc/systemd/network/10-{{ eth_device }}.network"
     state: present
+    create: yes
     line: "{{ item }}"
   with_items:
     - "[Match]"

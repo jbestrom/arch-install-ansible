@@ -8,6 +8,7 @@
       - fontconfig
       - libxrender
       - xorg-util-macros
+      - libxft
     state: present
   become: yes
 
@@ -18,7 +19,7 @@
     #    state: absent
     #  become: yes
 
-- name: Install libxft-bgra-git emoji fix
-  shell: yay -S libxft-bgra-git --save --answerclean All --answerdiff None
-  become: yes
-  become_user: "{{ user.name }}"
+    #- name: Install libxft-bgra-git emoji fix
+    #  shell: yay -S libxft-bgra-git --save --answerclean All --answerdiff None
+    #  become: yes
+    #  become_user: "{{ user.name }}"

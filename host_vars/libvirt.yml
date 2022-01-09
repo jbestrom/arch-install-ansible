@@ -3,6 +3,7 @@ install_drive: /dev/vda
 username: josh
 hostname: arch-beast
 extra_kernel_params: ''
+eth_device: enp1s0 
 extra_roles: 
   - aur
   - dwm
@@ -11,3 +12,4 @@ extra_roles:
   - st
   - dotfiles
   - qemu
+  - systemd-network-with-bridge

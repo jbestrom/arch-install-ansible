@@ -7,4 +7,4 @@ pacman -Sy git ansible python-passlib --noconfirm;
 
 git clone https://github.com/jbestrom/arch-install-ansible;
 
-ansible-playbook -i localhost /root/install.yml
+ansible-playbook -i localhost /root/arch-install-ansible/install.yml

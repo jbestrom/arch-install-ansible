@@ -4,7 +4,7 @@
     name:
       - ttf-joypixels
     state: present
-    become: yes
+  become: yes
 
 - name: Clone st
   git:

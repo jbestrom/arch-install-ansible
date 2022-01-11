@@ -7,8 +7,8 @@ $ bash -c "$(curl -s https://raw.githubusercontent.com/jbestrom/arch-install-ans
 
 
 TODO:
-Pulse
-XDG-utils
-discord
-slack
-brave browser
+ * Pulse
+ * XDG-utils
+ * discord
+ * slack
+ * brave browser

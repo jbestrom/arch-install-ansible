@@ -1,0 +1,14 @@
+---
+- name: install pulseaudio 
+  pacman:
+    name: 
+      - pulseaudio
+      - pavucontrol
+    state: present
+  become: yes
+
+- name: configure left right audio swap cause speakers suck and cable isn't long enough :)
+  template:
+    src: swapLeftRight.pa.j2
+    dest: /etc/pulse/default.pa.d/swapLeftRight.pa
+    mode: 644

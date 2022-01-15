@@ -25,7 +25,7 @@
 
 - name: Create FAT32 filesystem in boot partition
   filesystem:
-    dev: '{{ install_drive }}1'
+    dev: '{{ boot_drive }}'
     fstype: vfat
     opts: -F32
     force: yes
@@ -33,7 +33,7 @@
 # Create filesystems                            
 - name: Create ext4 filesystem in root volume
   filesystem:
-    dev: '{{ install_drive }}2'
+    dev: '{{ root_drive }}'
     fstype: ext4
     force: yes
 
@@ -41,7 +41,7 @@
 - name: Mount root filesystem
   mount:
     path: /mnt
-    src: '{{ install_drive }}2'
+    src: '{{ root_drive }}'
     fstype: ext4
     state: mounted
       
@@ -53,6 +53,6 @@
 - name: Mount boot filesystem
   mount:
     path: /mnt/boot
-    src: '{{ install_drive }}1'
+    src: '{{ boot_drive }}'
     fstype: vfat
     state: mounted

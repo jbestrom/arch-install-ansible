@@ -1,5 +1,7 @@
 ---
 install_drive: /dev/vda
+boot_drive: /dev/vda1
+root_drive: /dev/vda2
 username: josh
 hostname: arch-beast
 extra_kernel_params: ''

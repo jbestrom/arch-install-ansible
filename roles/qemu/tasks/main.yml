@@ -26,3 +26,8 @@
     state: present
     create: yes
     line: 'user = "{{ user.name }}"'
+
+- name: enable libvirtd service
+  systemd:
+    name: libvirtd
+    enabled: yes

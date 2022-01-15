@@ -8,6 +8,7 @@
       - fontconfig
       - libxrender
       - xorg-util-macros
+      - xdg-utils
     state: present
   become: yes
 

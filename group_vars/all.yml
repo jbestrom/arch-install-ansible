@@ -4,6 +4,7 @@
 # corresponding file in `host_vars`.
 machine_aliases:
   Standard PC (Q35 + ICH9, 2009): libvirt.yml
+  Standard PC (i440FX + PIIX, 1996): libvirt.yml
   X570 AORUS PRO WIFI: arch-beast.yml
 
 arch_root: /mnt

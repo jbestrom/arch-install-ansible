@@ -5,6 +5,7 @@
       - qemu
       - libvirt
       - virt-manager
+      - edk2-ovmf
     state: present
 
 - name: configure allow bridge

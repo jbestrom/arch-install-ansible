@@ -4,6 +4,7 @@
     name: 
       - qemu
       - libvirt
+      - virt-manager
     state: present
 
 - name: configure allow bridge

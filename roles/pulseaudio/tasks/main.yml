@@ -12,5 +12,4 @@
     src: swapLeftRight.pa.j2
     dest: /etc/pulse/default.pa.d/swapLeftRight.pa
     mode: 644
-    state: present
     create: yes

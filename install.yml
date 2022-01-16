@@ -71,7 +71,11 @@
     - include_vars: "host_vars/{{ machine_aliases[ansible_product_name] }}"
 
   roles:
-    - arch-install
+    - mirror_update
+    - localization
+    - user_create
+    - bootloader
+    - sudo
   
   tasks:
     - include_role:

@@ -6,8 +6,11 @@
   pre_tasks:
     - include_vars: "host_vars/{{ machine_aliases[ansible_product_name] }}"
 
-      #  roles:
-      #- arch-install
+  roles:
+    - mirror_update
+    - localization
+    - bootloader
+    - sudo
   
   tasks:
     - include_role:

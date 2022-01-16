@@ -1,4 +1,17 @@
 ---
+- name: configure hostname
+  lineinfile:
+    path: /etc/hostname
+    line: "{{ hostname }}"
+    create: yes
+
+- name: configure /etc/hosts
+  template:
+    src: hosts.j2
+    dest: /etc/hosts
+    mode: 0644
+  become: yes
+
 - name: enable systemd-network service
   systemd:
     name: systemd-networkd

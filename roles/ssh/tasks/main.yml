@@ -1,0 +1,26 @@
+---
+- name: install pulseaudio 
+  pacman:
+    name: 
+      - openssh
+    state: present
+  become: yes
+
+    #- name: create .ssh dir 
+    #file:
+    #path: "/home/{{ user.name }}/.ssh"
+    #state: directory
+    #become: yes
+    #become_user: "{{ user.name }}"
+
+- name: copy ssh keys
+  template:
+    src: jbestrom_gmail.j2
+    dest: /home/{{ user.name }}/.ssh/jbestrom_gmail
+    mode: 0644
+
+- name: copy ssh keys
+  template:
+    src: jbestrom_gmail.pub.j2
+    dest: /home/{{ user.name }}/.ssh/jbestrom_gmail.pub
+    mode: 0644

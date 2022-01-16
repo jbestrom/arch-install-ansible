@@ -1,0 +1,17 @@
+---
+- hosts: localhost
+  name: setup things after install
+  connection: local
+
+  pre_tasks:
+    - include_vars: "host_vars/{{ machine_aliases[ansible_product_name] }}"
+
+      #  roles:
+      #- arch-install
+  
+  tasks:
+    - include_role:
+        name:  "{{ item }}"
+      with_items:
+       "{{ extra_roles }}" 
+      when: extra_roles | length > 0

@@ -17,7 +17,7 @@
   template:
     src: jbestrom_gmail.j2
     dest: /home/{{ user.name }}/.ssh/id_ed25519
-    mode: 0644
+    mode: 0600
 
 - name: copy ssh keys
   template:

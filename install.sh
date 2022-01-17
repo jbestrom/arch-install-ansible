@@ -9,4 +9,4 @@ git clone https://github.com/jbestrom/arch-install-ansible;
 
 cd $HOME/arch-install-ansible;
 
-ansible-playbook -i localhost install.yml
+ansible-playbook -i localhost install.yml --ask-vault-password

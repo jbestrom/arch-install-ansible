@@ -71,7 +71,7 @@
     - include_vars: "host_vars/{{ machine_aliases[ansible_product_name] }}"
 
   roles:
-    - mirror_update
+    - update_mirrors
     - localization
     - user_create
     - bootloader

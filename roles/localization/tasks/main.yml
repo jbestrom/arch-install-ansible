@@ -4,9 +4,11 @@
     src: "/usr/share/zoneinfo/{{ timezone }}"
     dest: /etc/localtime
     state: link
+  become: yes
 
 - name: Generate adjtime file
   command: hwclock --systohc
+  become: yes
 
 - name: Configure locale.gen
   replace:
@@ -14,11 +16,14 @@
       regexp: "#.*({{ item }}.UTF-8 UTF-8)"
       replace: '\1'
   with_items: "{{ locales }}"
+  become: yes
 
 - name: Create locale.conf
   copy:
     content: "LANG=en_US.UTF-8"
     dest: /etc/locale.conf
+  become: yes
             
 - name: Generate locales
   command: locale-gen
+  become: yes

@@ -1,8 +1,10 @@
 ---
 - name: configure repository mirrors
   command: "reflector --sort score -p https --country '{{ country }}' --save /etc/pacman.d/mirrorlist"
+  become: yes
 
 - name: upgrade system to latest state
   pacman:
     update_cache: yes
     upgrade: yes      
+  become: yes

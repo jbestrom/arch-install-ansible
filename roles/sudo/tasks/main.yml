@@ -3,9 +3,11 @@
   pacman:
     name: sudo
     state: present
+  become: yes
 
 - name: configure sudoers
   template:
     src: sudoers.j2
     dest: /etc/sudoers
     mode: 440
+  become: yes

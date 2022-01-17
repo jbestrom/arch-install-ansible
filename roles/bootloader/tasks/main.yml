@@ -1,14 +1,17 @@
 ---
 - name: rebuild initramfs
   command: mkinitcpio -p linux
+  become: yes
 
 - name: install bootloader packages
   pacman:
     name:
       - efibootmgr
+  become: yes
 
 - name: Install systemd-boot to /boot
   command: bootctl install
+  become: yes
 
 - name: Create loader config
   lineinfile:
@@ -18,6 +21,7 @@
   with_items:
     - "default arch.conf"
     - "timeout 0"
+  become: yes
 
 - name: Generate PARTUUID
   command: "blkid -t PARTLABEL=root -l -s PARTUUID -o value"
@@ -36,6 +40,7 @@
     - "initrd /initramfs-linux.img"
     - "options root=PARTUUID={{ partuuid.stdout }} rw {{ extra_kernel_params }}"
   when: ansible_processor[1].find('AMD') != -1
+  become: yes
 
 - name: Create loader entry (Intel)
   lineinfile:
@@ -50,3 +55,4 @@
     - "initrd /initramfs-linux.img"
     - "options root=PARTUUID={{ partuuid.stdout }} rw {{ extra_kernel_parms }}"
   when: ansible_processor[1].find('Intel') != -1
+  become: yes

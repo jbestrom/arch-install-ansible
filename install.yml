@@ -73,7 +73,7 @@
   roles:
     - update_mirrors
     - localization
-    - user_create
+    - create_user
     - bootloader
     - sudo
   

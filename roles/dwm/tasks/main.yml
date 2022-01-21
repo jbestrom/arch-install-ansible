@@ -3,6 +3,7 @@
   git:
     repo: git@github.com:jbestrom/dwm.git
     dest: "/home/{{ user.name }}/.local/src/dwm"
+    key_file: "/home/{{ user.name }}/.ssh/id_rsa"
     accept_hostkey: yes
     update: yes
   become: true

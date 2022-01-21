@@ -6,12 +6,12 @@
     state: present
   become: yes
 
-    #- name: create .ssh dir 
-    #file:
-    #path: "/home/{{ user.name }}/.ssh"
-    #state: directory
-    #become: yes
-    #become_user: "{{ user.name }}"
+- name: create .ssh dir 
+  file:
+    path: "/home/{{ user.name }}/.ssh"
+    state: directory
+  become: yes
+  become_user: "{{ user.name }}"
 
 - name: copy ssh keys
   template:

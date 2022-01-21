@@ -1,6 +1,11 @@
 ---
 - name: Clone yay repo
-  git: repo=https://aur.archlinux.org/yay.git dest=/tmp/yay/ accept_hostkey=yes update=yes
+
+  git:
+    repo: https://aur.archlinux.org/yay.git
+    dest: /tmp/yay/
+    accept_hostkey: yes
+    update: yes
   become: true
   become_user: "{{ user.name }}"
 

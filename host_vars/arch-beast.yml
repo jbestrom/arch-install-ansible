@@ -13,7 +13,8 @@ extra_roles:
     #- dmenu
     #- dwmblocks
     #- st
-    #- dotfiles
+  - dotfiles
     #- qemu
     #- systemd-network-with-bridge
     #- pulseaudio
+  - scrot

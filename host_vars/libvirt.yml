@@ -8,6 +8,7 @@ extra_kernel_params: ''
 eth_device: enp1s0 
 extra_roles: 
   - aur
+  - ssh
   - dwm
   - dmenu
   - dwmblocks
@@ -16,3 +17,4 @@ extra_roles:
   - qemu
   - systemd-network-with-bridge
   - pulseaudio
+  - scrot

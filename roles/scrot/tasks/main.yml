@@ -1,0 +1,8 @@
+---
+- name: install scrot
+  pacman:
+    name: 
+      - scrot
+      - xclip
+    state: present
+  become: yes

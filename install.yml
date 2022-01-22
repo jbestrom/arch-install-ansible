@@ -91,6 +91,11 @@
        "{{ extra_roles }}" 
       when: extra_roles | length > 0
 
+    - name: Install extra packages
+      pacman:
+        name: "{{ extra_packages }}"
+      when: extra_packages | length > 0
+
     - name: Update Root user's Password
       user: 
         name: root

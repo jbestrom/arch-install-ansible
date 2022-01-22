@@ -25,3 +25,6 @@ extra_roles:
 
 git_config_name: Josh Bestrom
 git_config_email: jbestrom@gmail.com
+
+extra_packages:
+  - bc

@@ -4,8 +4,14 @@
   connection: local
 
   vars_prompt:
+    - name: root_password
+      prompt: "Installed Root Password"
+      encrypt: "sha512_crypt"
+      private: yes
+      confirm: yes
+
     - name: user_password
-      prompt: "user password:"
+      prompt: "Installed User Password"
       encrypt: "sha512_crypt"
       private: yes
       confirm: yes
@@ -15,6 +21,7 @@
 
     - set_fact:
         user_password: "{{ user_password }}"
+        root_password: "{{ root_password }}"
 
     #- name: Abort if the host is not booted from the Arch install media
     #  fail:
@@ -83,6 +90,12 @@
       with_items:
        "{{ extra_roles }}" 
       when: extra_roles | length > 0
+
+    - name: Update Root user's Password
+        user: 
+        name: root
+        update_password: always 
+        password: "{{ root_password }}"
 
 - hosts: localhost
   connection: local

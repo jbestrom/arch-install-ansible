@@ -19,3 +19,4 @@ extra_roles:
   - pulseaudio
   - scrot
   - brave_browser
+  - discord

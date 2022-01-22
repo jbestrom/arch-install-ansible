@@ -1,0 +1,5 @@
+---
+- name: Install discord
+  shell: yay -S discord --save --noconfirm --answerclean All --answerdiff None
+  become: yes
+  become_user: "{{ user.name }}"

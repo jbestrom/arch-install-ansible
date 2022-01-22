@@ -1,7 +1,7 @@
 ---
 - name: Clone dwmblocks
   git:
-    repo: https://github.com/jbestrom/dwmblocks.git
+    repo: git@github.com:jbestrom/dwmblocks.git
     dest: "/home/{{ user.name }}/.local/src/dwmblocks"
     accept_hostkey: yes
     update: yes

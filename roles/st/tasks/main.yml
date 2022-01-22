@@ -8,7 +8,7 @@
 
 - name: Clone st
   git:
-    repo: https://github.com/jbestrom/st.git
+    repo: git@github.com:jbestrom/st.git
     dest: "/home/{{ user.name }}/.local/src/st"
     accept_hostkey: yes
     update: yes

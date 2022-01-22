@@ -18,3 +18,4 @@ extra_roles:
   - systemd-network-with-bridge
   - pulseaudio
   - scrot
+  - brave_browser

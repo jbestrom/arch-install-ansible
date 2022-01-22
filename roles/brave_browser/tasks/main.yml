@@ -1,0 +1,5 @@
+---
+- name: Install brave browser 
+  shell: yay -S brave-bin --save --answerclean All --answerdiff None
+  become: yes
+  become_user: "{{ user.name }}"

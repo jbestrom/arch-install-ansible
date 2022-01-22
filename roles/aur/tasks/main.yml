@@ -3,13 +3,13 @@
 
   git:
     repo: https://aur.archlinux.org/yay.git
-    dest: /home/{{ user.name }}/yay/
+    dest: "/home/{{ user.name }}/yay/"
     accept_hostkey: yes
     update: yes
   become: true
   become_user: "{{ user.name }}"
 
 - name: Create yay package
-  shell: cd /home/{{ user.name }}/yay && makepkg -si --noconfirm
+  shell: cd "/home/{{ user.name }}/yay" && makepkg -si --noconfirm
   become: true
   become_user: "{{ user.name }}"

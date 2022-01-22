@@ -4,7 +4,7 @@
     name: user.email
     scope: global
     value: "{{ git_config_email }}"
-    no_log: true
+      #    no_log: true
 
 - name: Set user.name
   community.general.git_config:

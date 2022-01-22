@@ -20,3 +20,8 @@ extra_roles:
   - scrot
   - brave_browser
   - discord
+  - git_config
+
+
+git_config_name: Josh Bestrom
+git_config_email: jbestrom@gmail.com

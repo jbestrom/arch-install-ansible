@@ -9,6 +9,7 @@
       - libxrender
       - xorg-util-macros
       - xdg-utils
+      - gnu-free-fonts
     state: present
   become: yes
 

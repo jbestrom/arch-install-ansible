@@ -95,7 +95,7 @@
       user: 
         name: root
         update_password: always 
-        password: "{{ root_password }}"
+        password: "{{ hostvars.localhost.root_password }}"
 
 - hosts: localhost
   connection: local

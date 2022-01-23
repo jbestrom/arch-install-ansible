@@ -7,14 +7,24 @@ hostname: arch-beast
 extra_kernel_params: 'ipv6.disable=0 intel_pstate=no_hwp amd_iommu=on iommu=pt vfio-pci.ids=1b21:1242,1043:8696,1002:ab28'
 seth_device: enp7s0 
 extra_roles: 
-  #- aur
+  - aur
   - ssh
-    #- dwm
-    #- dmenu
-    #- dwmblocks
-    #- st
+  - dwm
+  - dmenu
+  - dwmblocks
+  - st
   - dotfiles
-    #- qemu
-    #- systemd-network-with-bridge
-    #- pulseaudio
+  - qemu
+  - systemd-network-with-bridge
+  - pulseaudio
   - scrot
+  - brave_browser
+  - discord
+  - git_config
+
+
+git_config_name: Josh Bestrom
+git_config_email: jbestrom@gmail.com
+
+extra_packages:
+  - bc

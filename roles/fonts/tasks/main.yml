@@ -1,0 +1,19 @@
+---
+- name: install required packages
+  pacman:
+    name:
+      - noto-fonts-emoji
+    state: present
+  become: yes
+
+    #- name: remove libxft as it conflicts with fix below
+    #  pacman:
+    #    name:
+    #      - libxft
+    #    state: absent
+    #  become: yes
+
+- name: Install Jetbrains Mono nerd font
+  shell: yay -S nerd-fonts-jetbrains-mono --save --answerclean All --answerdiff None --noconfirm
+  become: yes
+  become_user: "{{ user.name }}"

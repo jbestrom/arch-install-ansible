@@ -1,0 +1,43 @@
+---
+- name: install required packages
+  pacman:
+    name:
+      - stow
+    state: present
+  become: yes
+
+- name: Clone cli tool
+  git:
+    repo: https://github.com/qmk/qmk_cli.git
+    dest: "${HOME}/.local/src/qmk/qmk_cli"
+    update: yes
+  become: true
+  become_user: "{{ user.name }}"
+
+- name: Install qmk cli build
+  shell: python3 -m pip install build
+  become: true
+  become_user: "{{ user.name }}"
+
+
+- name: Install qmk cli 
+  shell: python3 -m pip install "${HOME}/.local/src/qmk/qmk_cli"
+  become: true
+  become_user: "{{ user.name }}"
+
+- name: Clone firmware
+  git:
+    repo: https://github.com/qmk/qmk_firmware.git
+    dest: "${HOME}/.local/src/qmk/qmk_firmware"
+    recursive: yes
+    update: yes
+  become: true
+  become_user: "{{ user.name }}"
+
+
+- name: install qmk firmware reqs
+  shell: ./qmk_install.sh
+  args:
+    chdir: "${HOME}/.local/src/qmk/qmk_firmware/util/"
+  become: yes
+  become_user: "{{ user.name }}"

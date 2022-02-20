@@ -1,0 +1,7 @@
+---
+- name: install nfs
+  pacman:
+    name: 
+      - nfs-utils
+    state: present
+  become: yes

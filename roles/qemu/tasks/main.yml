@@ -7,6 +7,7 @@
       - virt-manager
       - edk2-ovmf
     state: present
+  become: yes
 
 - name: configure allow bridge
   lineinfile:
@@ -14,12 +15,14 @@
     state: present
     create: yes
     line: "allow br0"
+  become: yes
 
 - name: configure qemu-ifup
   template:
     src: qemu-ifup.j2
     dest: /etc/qemu-ifup
     mode: 755
+  become: yes
 
 - name: config libvirt to use user
   lineinfile:
@@ -27,8 +30,10 @@
     state: present
     create: yes
     line: 'user = "{{ user.name }}"'
+  become: yes
 
 - name: enable libvirtd service
   systemd:
     name: libvirtd
     enabled: yes
+  become: yes

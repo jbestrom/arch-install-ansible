@@ -34,10 +34,24 @@
   become: true
   become_user: "{{ user.name }}"
 
-
 - name: install qmk firmware reqs
   shell: ./qmk_install.sh
   args:
     chdir: "${HOME}/.local/src/qmk/qmk_firmware/util/"
   become: yes
   become_user: "{{ user.name }}"
+
+- name: copy udev rules
+  template:
+    src: 50-qmk.rules.j2
+    dest: /etc/udev/rules.d/50-qmk.rules
+    mode: 644
+  become: yes
+
+- name: run udev rules update
+  shell: udevadm control --reload-rules
+  become: yes
+
+- name: run udev rules trigger
+  shell: udevadm trigger
+  become: yes

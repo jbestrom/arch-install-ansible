@@ -1,11 +1,4 @@
 ---
-- name: install required packages
-  pacman:
-    name:
-      - stow
-    state: present
-  become: yes
-
 - name: Clone cli tool
   git:
     repo: https://github.com/qmk/qmk_cli.git

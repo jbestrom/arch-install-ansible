@@ -3,6 +3,9 @@
   pacman:
     name:
       - noto-fonts-emoji
+      - noto-fonts
+      - noto-fonts-cjk
+      - noto-fonts-extra
     state: present
   become: yes
 

@@ -1,0 +1,37 @@
+---
+- name: install remmina remote desktop 
+  pacman:
+    name: 
+      - remmina
+    state: present
+  become: yes
+
+- name: create .config/remmina dir 
+  file:
+    path: "/home/{{ user.name }}/.config/remmina"
+    state: directory
+  become: yes
+  become_user: "{{ user.name }}"
+
+- name: copy config
+  template:
+    src: remmina.pref.j2
+    dest: /home/{{ user.name }}/.config/remmina/remmina.pref
+    mode: 0644
+  become: yes
+  become_user: "{{ user.name }}"
+
+- name: creat data dir 
+  file:
+    path: "/home/{{ user.name }}/.local/share/remmina"
+    state: directory
+  become: yes
+  become_user: "{{ user.name }}"
+
+- name: copy work profile 
+  template:
+    src: work.remmina.j2
+    dest: /home/{{ user.name }}/.local/share/remmina/work.remmina
+    mode: 0644
+  become: yes
+  become_user: "{{ user.name }}"

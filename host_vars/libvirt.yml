@@ -21,7 +21,7 @@ extra_roles:
   - brave_browser
   - discord
   - git_config
-
+  - keepassxc
 
 git_config_name: Josh Bestrom
 git_config_email: jbestrom@gmail.com

@@ -1,0 +1,7 @@
+---
+- name: Install KeePassXC
+  pacman:
+    name: 
+      - keepassxc
+    state: present
+  become: yes

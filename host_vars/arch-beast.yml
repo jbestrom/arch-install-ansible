@@ -23,9 +23,9 @@ extra_roles:
   - fonts
   - nfs
   - qmk
-
-
+  - keepassxc
   - dotfiles
+  - rclone
 
 git_config_name: Josh Bestrom
 git_config_email: jbestrom@gmail.com

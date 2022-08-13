@@ -1,0 +1,46 @@
+---
+- name: install rclone 
+  pacman:
+    name: 
+      - rclone
+    state: present
+  become: yes
+
+- name: create .config/rclone dir 
+  file:
+    path: "/home/{{ user.name }}/.config/rclone"
+    state: directory
+  become: yes
+  become_user: "{{ user.name }}"
+
+- name: copy rclone config
+  template:
+    src: rclone_config.j2
+    dest: /home/{{ user.name }}/.config/rclone/rclone.conf
+    mode: 0644
+  become: yes
+  become_user: "{{ user.name }}"
+
+- name: create .config/systemd/user 
+  file:
+    path: "/home/{{ user.name }}/.config/systemd/user"
+    state: directory
+  become: yes
+  become_user: "{{ user.name }}"
+
+- name: copy rclone systemd
+  template:
+    src: rclone.service.j2
+    dest: /home/{{ user.name }}/.config/systemd/user/rclone@.service
+    mode: 0644
+  become: yes
+  become_user: "{{ user.name }}"
+  
+- name: enable systemd service
+  systemd:
+    name: rclone@gdrive
+    state: started
+    enabled: yes
+    scope: user
+  become: yes
+  become_user: "{{ user.name }}"

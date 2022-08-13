@@ -22,6 +22,7 @@
     #  become: yes
 
 - name: Install libxft-bgra-git emoji fix
-  shell: yay -S libxft-bgra-git --save --answerclean All --answerdiff None
+  shell: yay -S libxft-git --save --answerclean All --answerdiff None
+  #shell: yay -S libxft-bgra-git --save --answerclean All --answerdiff None
   become: yes
   become_user: "{{ user.name }}"

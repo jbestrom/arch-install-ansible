@@ -3,6 +3,14 @@
   command: "reflector --sort score -p https --country '{{ country }}' --save /etc/pacman.d/mirrorlist"
   become: yes
 
+- name: upgrade keyring
+  pacman:
+    update_cache: yes
+    name:
+      - archlinux-keyring
+    state: present
+  become: yes
+
 - name: upgrade system to latest state
   pacman:
     update_cache: yes

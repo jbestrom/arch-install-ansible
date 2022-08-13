@@ -1,5 +1,5 @@
 ---
-- name: install pulseaudio 
+- name: install openssh 
   pacman:
     name: 
       - openssh

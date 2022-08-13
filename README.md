@@ -7,6 +7,4 @@ $ bash -c "$(curl -s https://raw.githubusercontent.com/jbestrom/arch-install-ans
 
 
 TODO:
- * discord
  * slack
- * brave browser

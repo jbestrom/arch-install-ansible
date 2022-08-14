@@ -27,6 +27,7 @@ extra_roles:
   - dotfiles
   - rclone
   - remmina
+  - zsh
 
 git_config_name: Josh Bestrom
 git_config_email: jbestrom@gmail.com

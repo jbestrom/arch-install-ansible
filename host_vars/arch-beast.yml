@@ -28,6 +28,7 @@ extra_roles:
   - rclone
   - remmina
   - zsh
+  - nvim
 
 git_config_name: Josh Bestrom
 git_config_email: jbestrom@gmail.com

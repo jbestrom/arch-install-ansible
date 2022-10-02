@@ -1,0 +1,31 @@
+---
+- name: install deps 
+  pacman:
+    name: 
+      - cmake 
+    state: present
+  become: yes
+
+- name: Clone Neovim
+  git:
+    repo: git@github.com:neovim/neovim.git
+    dest: "/home/{{ user.name }}/.local/src/neovim"
+    accept_hostkey: yes
+    update: yes
+  become: true
+  become_user: "{{ user.name }}"
+
+- name: Build Neovim
+  make:
+    chdir: "/home/{{ user.name }}/.local/src/neovim"
+    target: CMAKE_BUILD_TYPE=Release
+    file: "/home/{{ user.name }}/.local/src/neovim/Makefile"
+  become: yes
+  become_user: "{{ user.name }}"
+
+- name: Install Neovim
+  make:
+    chdir: "/home/{{ user.name }}/.local/src/neovim"
+    target: install
+    file: "/home/{{ user.name }}/.local/src/neovim/Makefile"
+  become: yes
